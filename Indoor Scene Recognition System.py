@@ -1,10 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 21 11:44:23 2018
 
-@author: anagh
-'''"""
-''''
+'''
 from skimage.transform import rotate,rescale
 img_array = cv2.imread("C:/Users/anagh/Documents/Anagha_UTA/Fall 2018/DS/project/extra/bakery2.jpeg",cv2.IMREAD_GRAYSCALE)
 rot = rotate(img_array, angle=90, mode='reflect')
@@ -12,7 +7,7 @@ new_array = cv2.resize(rot, (100,100))
 new_array=new_array.reshape(-1,100,100,1)
 plt.imshow(new_array, cmap='gray')
 
-img_array = cv2.imread("C:/Users/anagh/Documents/Anagha_UTA/Fall 2018/DS/project/extra/bakery2.jpeg",cv2.IMREAD_GRAYSCALE)
+img_array = cv2.imread("C:/Users/extra/bakery2.jpeg",cv2.IMREAD_GRAYSCALE)
 scaled = rescale(img_array, scale=50, mode='constant')
 new_array = cv2.resize(scaled, (100,100))
 new_array=new_array.reshape(-1,100,100,1)
@@ -50,7 +45,7 @@ import time
 
 
 
-datadir = "C:/Users/anagh/Documents/Anagha_UTA/Fall 2018/DS/project/Images"
+datadir = "C:/Users/Images"
 categories = ["airport_inside","artstudio","auditorium","bakery","bar","bathroom","bedroom","bookstore","closet",
               "dentaloffice","elevator","florist","garage","gym","hairsalon","hospitalroom","library","livingroom",
               "mall","office","poolinside"]
@@ -128,7 +123,7 @@ for dense_layer in dense_layers:
 
 '''
 #predicting
-filepath="C:/Users/anagh/Documents/Anagha_UTA/Fall 2018/DS/project/extra/"
+filepath="C:/Users/extra/"
 def prepare(img):                                      #preprocessing the new image
     img_array = cv2.imread(filepath+str(img),cv2.IMREAD_GRAYSCALE)
     new_array = cv2.resize(img_array, (100,100))
@@ -138,7 +133,7 @@ prediction = model.predict([new_array])
 print(categories[np.argmax(prediction)])
 
 
-img_array = cv2.imread("C:/Users/anagh/Documents/Anagha_UTA/Fall 2018/DS/project/extra/airport1.jpg",cv2.IMREAD_GRAYSCALE)
+img_array = cv2.imread("C:/Users/extra/airport1.jpg",cv2.IMREAD_GRAYSCALE)
 new_array = cv2.resize(img_array, (100,100))
 new_array=new_array.reshape(-1,100,100,1)
 plt.imshow(new_array, cmap='gray')
