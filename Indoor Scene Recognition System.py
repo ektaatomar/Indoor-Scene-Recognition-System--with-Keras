@@ -1,7 +1,7 @@
 
 '''
 from skimage.transform import rotate,rescale
-img_array = cv2.imread("C:/Users/anagh/Documents/Anagha_UTA/Fall 2018/DS/project/extra/bakery2.jpeg",cv2.IMREAD_GRAYSCALE)
+img_array = cv2.imread("C:/Users/extra/bakery2.jpeg",cv2.IMREAD_GRAYSCALE)
 rot = rotate(img_array, angle=90, mode='reflect')
 new_array = cv2.resize(rot, (100,100))
 new_array=new_array.reshape(-1,100,100,1)
@@ -103,7 +103,7 @@ for dense_layer in dense_layers:
         for conv_layer in conv_layers:
             name = "{}-conv-{}-nodes-{}-dense-{}".format(conv_layer,layer_size,dense_layer,int(time.time()))
             print(name)
-            tensorboard = TensorBoard(log_dir='C:/Users/anagh/Desktop/logs{}'.format(name))
+            tensorboard = TensorBoard(log_dir='C:/Users/Desktop/logs{}'.format(name))
             model = models.Sequential()
             
             model.add(Conv2D(layer_size,(3,3), input_shape = X.shape[1:]))
